@@ -9,13 +9,76 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:typescript"
+  ],
   "main": "./out/extension.js",
+  "configuration": {
+    "type": "object",
+    "title": "Read Comments Configuration",
+    "properties": {
+      "read-comments.enableCodeLens": {
+        "type": "boolean",
+        "default": true,
+        "description": "Enable CodeLens for reading comments."
+      }
+    }
+  },
+  "languages": [
+    {
+      "id": "javascript",
+      "extensions": [
+        ".js"
+      ],
+      "aliases": [
+        "JavaScript",
+        "javascript"
+      ]
+    },
+    {
+      "id": "typescript",
+      "extensions": [
+        ".ts"
+      ],
+      "aliases": [
+        "TypeScript",
+        "typescript"
+      ]
+    },
+    {
+      "id": "your-language",
+      "extensions": [
+        ".your-extension"
+      ],
+      "aliases": [
+        "Your Language",
+        "your-language"
+      ]
+    }
+  ],
+  "codeLensProviders": [
+    {
+      "language": "typescript",
+      "provider": "src/CodelensProvider"
+    }
+  ],
   "contributes": {
     "commands": [
       {
         "command": "read-comments.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "read-comments.enableCodeLens",
+        "title": "Enable Code Lens"
+      },
+      {
+        "command": "read-comments.disableCodeLens",
+        "title": "Disable Code Lens"
+      },
+      {
+        "command": "read-comments.codelensAction",
+        "title": "Code Lens Click"
       }
     ]
   },
@@ -28,14 +91,18 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.89.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.89.0",
     "@typescript-eslint/eslint-plugin": "^7.7.1",
     "@typescript-eslint/parser": "^7.7.1",
-    "eslint": "^8.57.0",
-    "typescript": "^5.4.5",
     "@vscode/test-cli": "^0.0.9",
-    "@vscode/test-electron": "^2.3.9"
+    "@vscode/test-electron": "^2.3.9",
+    "eslint": "^8.57.0",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "say": "^0.16.0",
+    "tsutils": "^3.21.0"
   }
 }
