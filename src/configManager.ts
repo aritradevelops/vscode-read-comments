@@ -15,7 +15,6 @@ class ConfigManager {
     workspace.getConfiguration().update(this.getSetting('voice'), v);
   }
   get enableCodeLens(): boolean {
-    console.log(this.getSetting('enableCodeLens'), workspace.getConfiguration().get(this.getSetting('enableCodeLens')), workspace.getConfiguration().get(this.getSetting('enableCodeLens'), this.defaultEnableCodeLens));
     return workspace.getConfiguration().get(this.getSetting('enableCodeLens'), this.defaultEnableCodeLens);
   }
   set enableCodeLens(enableCodeLens: boolean) {

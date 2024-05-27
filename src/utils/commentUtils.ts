@@ -1,5 +1,5 @@
 export class CommentUtils {
-  private excludeList = ['\/', '#', '*', '!', '?', '\n'];
+  private excludeList = ['\/', '#', '*', '!', '?', '\n', '"'];
   private getRegex() {
     return new RegExp(`[${this.excludeList.join('')}]`, 'g');
   }

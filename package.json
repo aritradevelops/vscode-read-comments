@@ -10,44 +10,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:*"
+    "onLanguage:typescript",
+    "onLanguage:javascript",
+    "onLanguage:python"
   ],
   "main": "./out/extension.js",
-  "languages": [
-    {
-      "id": "javascript",
-      "extensions": [
-        ".js"
-      ],
-      "aliases": [
-        "JavaScript",
-        "javascript"
-      ]
-    },
-    {
-      "id": "typescript",
-      "extensions": [
-        ".ts"
-      ],
-      "aliases": [
-        "TypeScript",
-        "typescript"
-      ]
-    },
-    {
-      "id": "your-language",
-      "extensions": [
-        ".your-extension"
-      ],
-      "aliases": [
-        "Your Language",
-        "your-language"
-      ]
-    }
-  ],
   "codeLensProviders": [
     {
-      "language": "typescript",
+      "language": "*",
       "provider": "src/CodelensProvider"
     }
   ],
