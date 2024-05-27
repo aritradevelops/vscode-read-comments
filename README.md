@@ -1,73 +1,76 @@
-# WORK IN PROGRESS
+# Intro
 
-# read-comments README
+**Read Comments** is a fun extension which reads aloud all the comments in your code,
+which may not be that useful or may be it is 🤔. let me know if you find a good use case 🤣.
+None the less *LORD* chatGpt 🤡 has found some of the use cases which are mentioned below 👇🏼.
 
-This is the README for your extension "read-comments". After writing up a brief description, we recommend including the following sections.
+## Usage Scenarios
 
-## Features
+- **Code Review**: Quickly listen to comments during a code review to catch all the important details without needing to scroll through the entire file.
+- **Learning and Documentation**: Helps new developers understand the codebase by listening to the documented comments and notes.
+- **Pair Programming**: Facilitates better communication between team members by reading out comments during collaborative coding sessions.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-For example if there is an image subfolder under your extension project workspace:
+## Key Features
 
-\!\[feature X\]\(images/feature-x.png\)
+- **Read Aloud**: Automatically reads out all the comments in your source code, allowing you to focus on coding while staying informed about important notes and annotations.
+- **Multi-Language Support**: Compatible with comments in various programming languages, making it versatile for any development environment.
+- **Customizable Voice Settings**: Choose from different voices and adjust the reading speed to match your preference.
+- **Selective Reading**: Option to read comments from the entire file, specific sections.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+
+
+## Demo
+
+Unfortunately you can not listen to gifs but can show you how the extension looks at least.
+
+![feature](public/demo.gif)
+
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+**Mac OS x** :
+  - None
+
+**Linux**:
+ - need to Instal [Festival](http://www.cstr.ed.ac.uk/projects/festival/)
+  ```bash
+  sudo apt-get install festival festvox-kallpc16k
+  ```
+**Windows**:
+  - Needs to have Powershell installed and available in $PATH (see [issue #75](https://github.com/Marak/say.js/issues/75))
+
+**WSL**:
+  - if you are using windows linux subsystem, you have forward the audio stream to the windows kernel from your linux vm. PulseAudio does the same.
+
+## Extension Commands
+You can turn off the code lenses when not required and turn on them when required.
+You can also read all the comments from command if codelens is disabled.
+
+![commands](public/commands.png)
 
 ## Extension Settings
+You can customize the speed, and enable / disable the CodeLens Feature.
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+![settings](public/settings.png)
 
-For example:
+Only **Mac OS X** users can customize the voice.
 
-This extension contributes the following settings:
+```bash
+  say -v "?" #will give you the list of available voices.
+```
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+ 1. On WSL pause does not work
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+None
 
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+Initial release.
 
 **Enjoy!**

@@ -1,7 +1,7 @@
 {
   "name": "read-comments",
   "displayName": "Read Comments",
-  "description": "",
+  "description": "This extension reads aloud all the comments in your source code so you can focus on the other important things 😉",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.89.0"
