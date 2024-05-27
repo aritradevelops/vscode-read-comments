@@ -1,5 +1,5 @@
 import { Position, TextDocument } from "vscode";
-import { CommentUtils } from "./commetUtils";
+import { CommentUtils } from "./commentUtils";
 
 export abstract class Parser {
   util = new CommentUtils();

@@ -10,20 +10,9 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:typescript"
+    "onLanguage:*"
   ],
   "main": "./out/extension.js",
-  "configuration": {
-    "type": "object",
-    "title": "Read Comments Configuration",
-    "properties": {
-      "read-comments.enableCodeLens": {
-        "type": "boolean",
-        "default": true,
-        "description": "Enable CodeLens for reading comments."
-      }
-    }
-  },
   "languages": [
     {
       "id": "javascript",
@@ -63,22 +52,46 @@
     }
   ],
   "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Read Comments Configuration",
+      "properties": {
+        "read-comments.enableCodeLens": {
+          "title": "Read Comments: Enable CodeLens",
+          "type": "boolean",
+          "default": true,
+          "description": "Whether the code lens is to be enabled."
+        },
+        "read-comments.voice": {
+          "title": "Read Comments: Choose Voice",
+          "type": "string",
+          "default": "",
+          "description": "Please refer to the voice section of the readme for more details."
+        },
+        "read-comments.speed": {
+          "title": "Read Comments: Choose Speed",
+          "type": "number",
+          "default": 1,
+          "description": "Adjust the voice speed."
+        }
+      }
+    },
     "commands": [
       {
-        "command": "read-comments.helloWorld",
-        "title": "Hello World"
-      },
-      {
         "command": "read-comments.enableCodeLens",
-        "title": "Enable Code Lens"
+        "title": "Read Comments: Enable Code Lens"
       },
       {
         "command": "read-comments.disableCodeLens",
-        "title": "Disable Code Lens"
+        "title": "Read Comments: Disable Code Lens"
       },
       {
-        "command": "read-comments.codelensAction",
-        "title": "Code Lens Click"
+        "command": "read-comments.read",
+        "title": "Read Comments: Read All Comments"
+      },
+      {
+        "command": "read-comments.pause",
+        "title": "Read Comments: Pause Reading"
       }
     ]
   },
@@ -91,6 +104,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
+    "@types/espree": "^10.0.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
     "@types/vscode": "^1.89.0",
@@ -102,6 +116,7 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "espree": "^10.0.1",
     "say": "^0.16.0",
     "tsutils": "^3.21.0"
   }

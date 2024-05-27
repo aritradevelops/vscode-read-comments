@@ -1,48 +1,40 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import say from 'say';
-import { Disposable, ExtensionContext, StatusBarAlignment, commands, languages, window, workspace } from 'vscode';
-import { CodelensProvider } from './codelensProvider';
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
-
-let disposables: Disposable[] = [];
+import { ExtensionContext, commands, languages } from 'vscode';
+import { ReadCommentsCodeLensProvider } from './codelensProvider';
+import configManager from './configManager';
+import speaker from './utils/speaker';
 
 export function activate(context: ExtensionContext) {
-  const codelensProvider = new CodelensProvider();
+  const codelensProvider = new ReadCommentsCodeLensProvider();
+  const codelensDisposable = languages.registerCodeLensProvider("*", codelensProvider);
 
-  languages.registerCodeLensProvider("*", codelensProvider);
-
-  commands.registerCommand("read-comments.enableCodeLens", () => {
-    workspace.getConfiguration("read-comments").update("enableCodeLens", true, true);
+  const disableCodeLensCommand = commands.registerCommand("read-comments.disableCodeLens", () => {
+    configManager.enableCodeLens = false;
   });
-
-  commands.registerCommand("read-comments.disableCodeLens", () => {
-    workspace.getConfiguration("read-comments").update("enableCodeLens", false, true);
+  const enableCodeLensCommand = commands.registerCommand("read-comments.enableCodeLens", () => {
+    configManager.enableCodeLens = true;
   });
-
-  commands.registerCommand("read-comments.read", (id: number, text: string) => {
-    console.log(text);
-    const loader = window.createStatusBarItem(StatusBarAlignment.Left, 100);
-    loader.text = 'Reading Comments';
-    loader.show();
-    say.speak(text, undefined, 1.0, (err) => {
-      if (err) {
-        console.log(err);
-        window.showErrorMessage(`Something went wrong while trying to read the comment.`);
-      }
-      else {
-        window.showInformationMessage(`Comment was read successfully.`);
-      }
-      loader.hide();
-    });
+  const setSpeedCommand = commands.registerCommand("read-comments.speed", (speed: number) => {
+    configManager.speed = speed;
   });
+  const setVoiceCommand = commands.registerCommand("read-comments.voice", (voice: string) => {
+    configManager.voice = voice;
+  });
+  const readCommand = commands.registerCommand("read-comments.read", speaker.read.bind(speaker));
+  const pauseCommand = commands.registerCommand("read-comments.pause", speaker.pause.bind(speaker));
+
+  // Adding each disposable to the context's subscriptions
+  context.subscriptions.push(
+    codelensDisposable,
+    disableCodeLensCommand,
+    enableCodeLensCommand,
+    setSpeedCommand,
+    setVoiceCommand,
+    readCommand,
+    pauseCommand
+  );
 }
 
-// this method is called when your extension is deactivated
+// This method is called when your extension is deactivated
 export function deactivate() {
-  if (disposables) {
-    disposables.forEach(item => item.dispose());
-  }
-  disposables = [];
+  // Clean up any resources here if necessary
 }

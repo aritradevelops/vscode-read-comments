@@ -1,7 +1,7 @@
 import { Position, TextDocument } from "vscode";
 import * as ts from 'typescript';
 import { forEachComment } from 'tsutils';
-import { ParsedComment } from "../interfaces/parsedComment";
+import { ParsedComment } from "../types";
 import { Parser } from "../utils/parser";
 export default class TsParser extends Parser {
 
@@ -11,10 +11,10 @@ export default class TsParser extends Parser {
     if (source) {
       const sourceFile = ts.createSourceFile(filePath, source, ts.ScriptTarget.Latest);
       const parsedComments: ParsedComment[] = [];
-      const soruceCode = sourceFile.getFullText();
+      const sourceCode = sourceFile.getFullText();
       forEachComment(sourceFile, (_, cRange) => {
         parsedComments.push({
-          content: this.util.extract(soruceCode.slice(cRange.pos, cRange.end + 1)),
+          content: this.util.extract(sourceCode.slice(cRange.pos, cRange.end + 1)),
           start: cRange.pos,
           end: cRange.end
         });

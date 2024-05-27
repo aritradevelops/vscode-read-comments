@@ -4,6 +4,8 @@ export class CommentUtils {
     return new RegExp(`[${this.excludeList.join('')}]`, 'g');
   }
   extract(fullComment: string) {
-    return fullComment.replace(this.getRegex(), ' ').trim();
+    // adding a full stop at the end so that the tts provider takes a pause
+    // before reading the next line
+    return fullComment.replace(this.getRegex(), ' ').trim() + '. ';
   }
 }
