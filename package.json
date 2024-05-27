@@ -3,6 +3,10 @@
   "displayName": "Read Comments",
   "description": "This extension reads aloud all the comments in your source code so you can focus on the other important things 😉",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arizworld/vscode-read-comments"
+  },
   "engines": {
     "vscode": "^1.89.0"
   },
