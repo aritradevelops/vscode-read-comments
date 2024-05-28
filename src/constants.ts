@@ -12,9 +12,9 @@ export const hoverMessageMap: { [key in CodeLensOptions]: string } = {
 } as const;
 
 export const commandMap: { [key in CodeLensOptions]: string } = {
-  'read': 'read-comments.read',
-  'readAll': 'read-comments.read',
-  'pause': 'read-comments.pause'
+  'read': 'speaker.read',
+  'readAll': 'speaker.read',
+  'pause': 'speaker.pause'
 } as const;
 
-export const appIdentifier = 'read-comments' as const;
+export const appIdentifier = 'speaker' as const;

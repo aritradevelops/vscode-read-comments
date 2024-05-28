@@ -26,7 +26,7 @@ export class ReadCommentsCodeLensProvider implements vscode.CodeLensProvider {
     if (!configManager.enableCodeLens) { return []; }
     try {
       const codeLenses: vscode.CodeLens[] = [];
-      if (vscode.workspace.getConfiguration("read-comments").get("enableCodeLens", true)) {
+      if (vscode.workspace.getConfiguration("speaker").get("enableCodeLens", true)) {
         let allComments = '';
         const parser = parserFactory.getParser(document.languageId);
         const comments = parser.parseComments(document);
@@ -47,7 +47,7 @@ export class ReadCommentsCodeLensProvider implements vscode.CodeLensProvider {
         this.codeLenses = codeLenses;
       }
     } catch (error) {
-      console.error('Read Comments : An error occurred while parsing => ', error);
+      console.error('Speaker : An error occurred while parsing => ', error);
     }
     return this.codeLenses;
   }

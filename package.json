@@ -1,12 +1,13 @@
 {
-  "name": "read-comments",
-  "displayName": "Read Comments",
+  "name": "speaker",
+  "displayName": "Speaker",
   "description": "This extension reads aloud all the comments in your source code so you can focus on the other important things 😉",
   "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/arizworld/vscode-read-comments"
   },
+  "icon": "./public/logo.png",
   "engines": {
     "vscode": "^1.89.0"
   },
@@ -28,22 +29,22 @@
   "contributes": {
     "configuration": {
       "type": "object",
-      "title": "Read Comments Configuration",
+      "title": "Speaker Configuration",
       "properties": {
-        "read-comments.enableCodeLens": {
-          "title": "Read Comments: Enable CodeLens",
+        "speaker.enableCodeLens": {
+          "title": "Speaker: Enable CodeLens",
           "type": "boolean",
           "default": true,
           "description": "Whether the code lens is to be enabled."
         },
-        "read-comments.voice": {
-          "title": "Read Comments: Choose Voice",
+        "speaker.voice": {
+          "title": "Speaker: Choose Voice",
           "type": "string",
           "default": "",
           "description": "Please refer to the voice section of the readme for more details."
         },
-        "read-comments.speed": {
-          "title": "Read Comments: Choose Speed",
+        "speaker.speed": {
+          "title": "Speaker: Choose Speed",
           "type": "number",
           "default": 1,
           "description": "Adjust the voice speed."
@@ -52,20 +53,20 @@
     },
     "commands": [
       {
-        "command": "read-comments.enableCodeLens",
-        "title": "Read Comments: Enable Code Lens"
+        "command": "speaker.enableCodeLens",
+        "title": "Speaker: Enable Code Lens"
       },
       {
-        "command": "read-comments.disableCodeLens",
-        "title": "Read Comments: Disable Code Lens"
+        "command": "speaker.disableCodeLens",
+        "title": "Speaker: Disable Code Lens"
       },
       {
-        "command": "read-comments.read",
-        "title": "Read Comments: Read All Comments"
+        "command": "speaker.read",
+        "title": "Speaker: Read All Comments"
       },
       {
-        "command": "read-comments.pause",
-        "title": "Read Comments: Pause Reading"
+        "command": "speaker.pause",
+        "title": "Speaker: Pause Reading"
       }
     ]
   },

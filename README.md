@@ -1,6 +1,6 @@
 # Intro
 
-**Read Comments** is a fun extension which reads aloud all the comments in your code,
+**Speaker** is a fun extension which reads aloud all the comments in your code,
 which may not be that useful or may be it is 🤔. let me know if you find a good use case 🤣.
 None the less *LORD* chatGpt 🤡 has found some of the use cases which are mentioned below 👇🏼.
 
@@ -16,7 +16,7 @@ None the less *LORD* chatGpt 🤡 has found some of the use cases which are ment
 - **Read Aloud**: Automatically reads out all the comments in your source code, allowing you to focus on coding while staying informed about important notes and annotations.
 - **Multi-Language Support**: Compatible with comments in various programming languages, making it versatile for any development environment. Currently supports python, typescript, javascript.
 - **Customizable Voice Settings**: Choose from different voices and adjust the reading speed to match your preference.
-- **Selective Reading**: Option to read comments from the entire file, specific sections.
+- **Selective Reading**: Option to Speaker from the entire file, specific sections.
 
 
 

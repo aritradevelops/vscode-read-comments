@@ -33,7 +33,7 @@ class ParserFactory {
     if (lang in this.inventory) {
       return new this.inventory[lang]();
     }
-    console.log(`Read Comments: Sorry no suitable parser found for language ${lang}. Don't worry we're working on one...`);
+    console.log(`Speaker: Sorry no suitable parser found for language ${lang}. Don't worry we're working on one...`);
     return new (class FallbackParser extends Parser {
       parseComments(document: TextDocument): { start: Position; end: Position; comment: string; }[] {
         return [];
