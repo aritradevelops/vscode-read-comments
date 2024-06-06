@@ -8,4 +8,9 @@ export class CommentUtils {
     // before reading the next line
     return fullComment.replace(this.getRegex(), ' ').trim() + '. ';
   }
+  isEmpty(str: string) {
+    // Regular expression to match any character that is not a space, newline, or tab
+    const nonWhitespacePattern = /[^\s]/;
+    return !nonWhitespacePattern.test(str);
+  }
 }

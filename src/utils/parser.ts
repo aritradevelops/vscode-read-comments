@@ -8,11 +8,15 @@ export abstract class Parser {
   accumulateConsecutiveComments(parsedComments: ParsedComment[], document: TextDocument) {
     // Accumulate consecutive comments and read them at once
     const final: ReturnType<typeof this.parseComments> = [];
+    const code = document.getText();
     let idx = 0;
     while (idx < parsedComments.length) {
       let { content, start, end } = parsedComments[idx];
       while (++idx < parsedComments.length) {
-        if (parsedComments[idx].start === end + 1) {
+        // the content between the last comment end and start of this comment is empty
+        // then treat them as one
+        const contentInBetween = code.slice(end, parsedComments[idx].start);
+        if (this.util.isEmpty(contentInBetween)) {
           end = parsedComments[idx].end;
           content += ' ' + parsedComments[idx].content;
           continue;
