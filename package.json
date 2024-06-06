@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/arizworld/vscode-read-comments"
   },
-  "icon": "./public/logo.png",
+  "icon": "public/logo.png",
   "engines": {
     "vscode": "^1.89.0"
   },
